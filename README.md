@@ -5,4 +5,4 @@ Autoren und Autorinnen:
 
 Tim Novak und Cynthia: Aufgabe 1
 
-Jan Enno Jonas, Hanjin, Vincent
+Jan Enno Jonas, Hanjin, Vincent Schroeder

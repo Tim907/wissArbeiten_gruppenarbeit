@@ -3,6 +3,6 @@
 
 Autoren und Autorinnen:
 
-Tim Novak und Cynthia: Aufgabe 1
+Tim Novak und Cynthia Njontie: Aufgabe 1
 
-Jan Enno Jonas, Hanjin, Vincent Schroeder
+Jan Enno Jonas, Hanjin Xu, Vincent Schroeder

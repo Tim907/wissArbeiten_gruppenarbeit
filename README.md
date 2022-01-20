@@ -3,9 +3,9 @@
 
 Autoren und Autorinnen:
 
-Tim Novak und Cynthia: Aufgabe 1
+Tim Novak und Cynthia Njontie: Aufgabe 1
 
-Jan Enno Jonas, Hanjin, Vincent Schroeder
+Jan Enno Jonas, Hanjin Xu, Vincent Schroeder
 
 Folgende Aufgabenstellung ist zu bearbeiten:
 1. Zwei Gruppenmitglieder erstellen ein R-Skript (verfügbar auf Ihrem Repository), in

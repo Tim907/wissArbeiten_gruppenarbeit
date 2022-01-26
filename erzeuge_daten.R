@@ -1,14 +1,21 @@
 
 # Dieses R-Skript dient dem Simulieren eines Datensatzes nach Aufgabe 1.
-# Er soll 100 Beobachtungen auf 5 Variablen beinhalten, exclusive der ersten Spalte ID.
+# Er soll 100 Beobachtungen auf 5 Variablen beinhalten, exclusive der ersten 
+# Spalte ID.
 
 # todo dataFrame mit 6 Spalten erzeugen
 N = 100
-data = data.frame(ID = 1:N)
+data = data.frame(ID = 1:N,
+                  "Alter" = numeric(N),
+                  "Studienfach" = character(N),
+                  "Interesse an Mathematik" = numeric(N), # auch factor moeglich
+                  "Interesse an Programmieren" = numeric(N),
+                  "Mathe-LK" = character(N)) #factor() geht nicht, weil Laenge 0
 
 # todo (1)
 col = rnorm(N, 25, 2)
-data = cbind(data, Alter = col)
+#data = cbind(data, Alter = col)
+data$Alter <- col
 
 # todo (2)
 auswahl = c("Statistik", "Data Science", "Mathe", "Informatik")
@@ -29,9 +36,11 @@ p_statistik = p_statistik / total
 p_mathe = p_mathe / total
 p_informatik = p_informatik / total
 
-col = sample(auswahl, N, replace = TRUE, c(p_statistik, p_statistik, p_mathe, p_informatik))
+col = sample(auswahl, N, replace = TRUE, 
+             c(p_statistik, p_statistik, p_mathe, p_informatik))
 #table(col)
-data = cbind(data, Studienfach = col)
+#data = cbind(data, Studienfach = col)
+data$Studienfach <- col
 
 # todo (3)
 

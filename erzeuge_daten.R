@@ -11,6 +11,8 @@ data = data.frame(ID = 1:N,
                   "Interesse an Mathematik" = numeric(N), # auch factor moeglich
                   "Interesse an Programmieren" = numeric(N),
                   "Mathe-LK" = character(N)) #factor() geht nicht, weil Laenge 0
+#Replizierbarkeit
+#set.seed()
 
 # todo (1)
 col = rnorm(N, 25, 2)

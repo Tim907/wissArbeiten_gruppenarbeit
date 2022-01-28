@@ -17,7 +17,7 @@ data = data.frame(ID = 1:N,
 # todo (1)
 col = rnorm(N, 25, 2)
 #data = cbind(data, Alter = col)
-data$Alter <- col
+data$Alter = col
 
 # todo (2)
 auswahl = c("Statistik", "Data Science", "Mathe", "Informatik")
@@ -42,7 +42,7 @@ col = sample(auswahl, N, replace = TRUE,
              c(p_statistik, p_statistik, p_mathe, p_informatik))
 #table(col)
 #data = cbind(data, Studienfach = col)
-data$Studienfach <- col
+data$Studienfach = col
 
 # todo (3)
 

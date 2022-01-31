@@ -82,6 +82,9 @@ set.seed(44)
 
 
 # todo (5)
+P_Mathe.LK = 0.5 + (person$Interesse.an.Mathematik - person$Interesse.an.Programmieren) / 6 * 0.35
+person$Mathe.LK = rbinom(nrow(person), 1, P_Mathe.LK)
+person$Mathe.LK = factor(person$Mathe.LK, labels = c("ja", "nein"), levels = c(1, 0))
 
 #data = cbind(data, col)
 

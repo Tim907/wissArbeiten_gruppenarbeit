@@ -3,7 +3,7 @@
 # Er soll 100 Beobachtungen auf 5 Variablen beinhalten, exclusive der ersten 
 # Spalte ID.
 
-# todo Beginn: dataFrame mit 6 Spalten erzeugen
+# Beginn: dataFrame mit 6 Spalten erzeugen
 N = 100
 person = data.frame(ID = 1:N,
                   "Alter" = numeric(N),
@@ -13,12 +13,12 @@ person = data.frame(ID = 1:N,
                   "Mathe-LK" = character(N)) #factor spaeter
 
 
-# todo (1)
+# (1)
 set.seed(11)
 person$Alter = rnorm(N, 25, 2)
 
 
-# todo (2)
+# (2)
 auswahl = c("Statistik", "Data Science", "Informatik", "Mathe")
 
 # Fachwahl simuleirt die Fachwahl von n Studenten in einem Vektor mit 4 
@@ -56,7 +56,7 @@ person$Studienfach = Fachwahl(auswahl, N)
 #table(person$Studienfach)
 
 
-# todo (3)
+# (3)
 M_Interesse = as.numeric(as.vector(factor(person$Studienfach, 
                             labels = c(0.3, 0.4, 0.6, 0.85), 
                             levels = c("Informatik", "Data Science", "Statistik", 
@@ -67,7 +67,7 @@ person$Interesse.an.Mathematik = sapply(M_Interesse, rbinom, n = 1, size = 6) + 
 #sapply(split(person$Interesse.an.Mathematik, person$Studienfach), mean)
 
 
-# todo (4)
+# (4)
 P_Interesse = as.numeric(as.vector(factor(person$Studienfach, 
                                 labels = c(0.25, 0.42, 0.7, 0.9),
                                 levels = c("Mathe", "Statistik", "Data Science", 
@@ -80,7 +80,7 @@ person$Interesse.an.Programmieren =
 #sapply(split(person$Interesse.an.Programmieren, person$Studienfach), mean) #/ 7
 
 
-# todo (5)
+# (5)
 P_Mathe.LK = 0.67 + (person$Interesse.an.Mathematik - 
                       person$Interesse.an.Programmieren) / 6 * 0.3
 # nur W'keiten zwischen 0.37 und 0.97 moeglich  #(0.3/6) * c(-6, 0, 6) + 0.67
@@ -96,7 +96,7 @@ person$Mathe.LK = factor(person$Mathe.LK, labels = c("ja", "nein"), levels = c(1
 # cat("Mathe LK?\n"); sapply(split(person$Mathe.LK, person$Studienfach), table)
 
 
-# todo Ende: Datensatz als .csv abspeichern
+# Ende: Datensatz als .csv abspeichern
 write.csv2(person, file = "person.csv", row.names = FALSE)
 #read.csv2("person.csv")
 

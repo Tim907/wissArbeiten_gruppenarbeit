@@ -24,6 +24,10 @@ auswahl = c("Statistik", "Data Science", "Informatik", "Mathe")
 # Fachwahl simuleirt die Fachwahl von n Studenten in einem Vektor mit 4 
 # verschiedenen Faechern und willkuerlichen, aber festen relativen Haeufigkeiten
 #
+# input:  faecher   Vektor der Laenge 4 mit den Faechernamen
+#         n         numerisch; Anzahl Realisierungen
+# output: Vektor der Laenge n mit den zufaelligen Realisierungen der Faecher
+#
 Fachwahl = function(faecher, n){
   stopifnot(length(faecher) == 4,
             is.numeric(n))

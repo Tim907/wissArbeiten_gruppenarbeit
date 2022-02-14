@@ -73,6 +73,41 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 
 # todo (d)
 
-# todo (e)
+#e)
+
+#quantilKategorisierung -  die mindestens ordinal skalierte Variablen quantilsbasiert kategorisiert
+#
+# Input
+# 
+# data - num. Vektor: Daten, die kategorisiert werden sollen
+# grenzen: num. Vektor mit gewünschten 2 Quantilen, die die Grenzen festlegen
+# Anordnung - ein character-Vektor: die Anordnung der Variable von klein zu groß
+#
+# Output
+#
+# dataframe: Spalte 1 die urspürnglichen Daten, Spalte 2 "Kategorie" die berechnete Kategorie
+
+quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NA) {
+  
+  if(is.na(Anordnung )) { #Daten sind numerisch, agiere daher mit normaler Ordnungsrelation <, >
+    quants = quantile(data, probs = grenzen)
+    data = as.data.frame(data)
+    data$Kategorie = ""
+    data[data$data <= quants[1], ]$Kategorie = "niedrig"
+    data[data$data >= quants[2], ]$Kategorie = "hoch"
+    data[data$data < quants[2] & data$data > quants[1], ]$Kategorie = "mittel"
+  }
+  else {
+    ### todo für andere Ordnungsrelationen
+  }
+  return(data) #dataframe okay?
+  }
+
+
+
+#Test
+data = sample(1000, 100)
+quantilKategorisierung(data)
+table(quantilKategorisierung(data)$Kategorie)
 
 # todo (f)

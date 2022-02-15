@@ -23,7 +23,7 @@ source("Funktionen-R-Skript 2.R")
 cor_metric_dicho = function(x, y) {
   
   model = glm(y ~ x, family=binomial(link = "logit"))
-  predictions = model1$fitted.values
+  predictions = model$fitted.values
   info = summary(model)
   return(list(prediction = predictions, summary = summary(model)))
 }

@@ -85,7 +85,7 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 #
 # Output
 #
-# dataframe: Spalte 1 "data" mit den urspürnglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
+# dataframe: Spalte 1 "data" mit den ursprünglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
 
 quantilKategorisierung = function(data, grenzen = c(0.25, 0.75)) {
   

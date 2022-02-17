@@ -21,8 +21,8 @@
 #
 quad_Kontingenz = function(x, y = NULL, method = 1){
   if(!is.table(x) & !is.matrix(x) & is.null(y)){
-    stop("Zwei Vektoren muessen angegeben werden, alternativ eine Tabelle oder",
-         " eine Matrix.")
+    stop("Es muessen ZWEI Vektoren angegeben werden! Alternativ eine Tabelle",
+         " oder eine Matrix.")
   }
   stopifnot(method %in% 1:2,
             is.null(y) || length(x) == length(y))
@@ -57,5 +57,5 @@ quad_Kontingenz = function(x, y = NULL, method = 1){
     error = (sum(error) - 1) * n
   }
   
-  return(chi_quad = error)
+  return(Chi_quad = error)
 }

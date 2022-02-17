@@ -40,6 +40,7 @@ qualitativ = function(a){
 #                                RelativeHaeufigkeit, Median)
 
 ordinal = function(a, Anordnung){
+  if(is.null(Anordnung)) stop("Anordnung fehlt!")
   stopifnot(length(names(table(a))) == length(Anordnung))
   
   modus = names(table(a)[which.max(table(a))])

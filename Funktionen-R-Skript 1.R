@@ -86,3 +86,36 @@ relate_categorial = function( X, Y, Merkmal = c("nominal", "nominal"),
 
 # Zusatz
 
+# rangkorr_koeff
+# 
+# Funktion: berechnet den Spearmanschen Rangkorrelationskoeffizienten r_x,y.
+#           Geeignet fuer zwei mindestens ordinal skalierte Merkmale, wobei die 
+#           Anordnung selbst bestimmt werden kann.
+# 
+# input:    X         - Vektor; erste Variable
+#           Y         - Vektor; zweite Variable
+#           xAnordnung- alle (meoglichen) Realisierungen von X in sortierter 
+#                       Reihenfolge, sonst Sortierung nach Ordnung in R
+#           yAnordnung- alle Realisierungen von Y in sortierter Reihenfolge, ...
+#           Bindungen - Verfahren zum Umgang mit Bindungen: "average" (a. Mittel)/
+#                       "max"/"min"/"random" der Raenge
+# 
+# output:   der Rangkorrelationskoeffizient; numerisch
+#
+rangkorr_koeff = function(X, Y, xAnordnung = NULL, yAnordnung = NULL, 
+                          Bindungen = "average"){
+  stopifnot(length(X) == length(Y), 
+            Bindungen %in% c("average", "max", "min", "random"))
+  
+  RgX = raenge(X, Anordnung = xAnordnung, Bindungen)
+  RgY = raenge(Y, Anordnung = yAnordnung, Bindungen)
+  
+  RgX = RgX - mean(RgX)
+  RgY = RgY - mean(RgY)
+  
+  r = (sum(RgX * RgY)) / sqrt(sum(RgX^2) * sum(RgY^2))
+  
+  print(c("monoton fallender" = -1, "kein Zusammenhang" = 0, 
+          "monoton wachsender Zusammenhang" = 1))
+  return(Rangkorrelationskoeffizient = r)
+}

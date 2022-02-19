@@ -73,6 +73,32 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 
 # todo (d)
 
-# todo (e)
+#e)
+
+#quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variable quantilsbasiert kategorisiert
+#
+# Input
+# 
+# data - numerisch oder ordinalskalierte Variable: Daten, die kategorisiert werden sollen
+# grenzen: num. Vektor mit 2 gewünschten Quantilen, die die Grenzen festlegen
+#
+#
+# Output
+#
+# dataframe: Spalte 1 "data" mit den ursprünglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
+
+quantilKategorisierung = function(data, grenzen = c(0.25, 0.75)) {
+  
+  data = as.numeric(data)
+  
+  quants = quantile(data, probs = grenzen)
+  data = as.data.frame(data)
+  data$Kategorie = ""
+  data[data$data <= quants[1], ]$Kategorie = "niedrig"
+  data[data$data >= quants[2], ]$Kategorie = "hoch"
+  data[data$data < quants[2] & data$data > quants[1], ]$Kategorie = "mittel"
+
+  return(data)
+  }
 
 # todo (f)

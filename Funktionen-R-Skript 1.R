@@ -77,6 +77,9 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 # todo (e)
 
 # todo (f)
+# Visualisierung erstellt 4 Grafiken
+# Input - data - Dataframe 
+# Output - eine Grafik
 person = read.csv2("person.csv")
 Visualisierung = function(data = person){
   par(mfrow = c(2,2))

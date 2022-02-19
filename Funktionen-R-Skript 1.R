@@ -1,6 +1,7 @@
 
 # Bearbeitung von Aufgabe 3
-
+setwd("C:/Users/User/Desktop/UNI/Semester 3/Wissenschaftliches Arbeiten")
+library(ggplot2)
 # Falls Probleme beim Laden, probiert: Session/Set Working Directory/To Source File Location
 source("Funktionen-R-Skript 2.R")
 
@@ -76,3 +77,13 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 # todo (e)
 
 # todo (f)
+person = read.csv2("person.csv")
+Visualisierung = function(data = person){
+  par(mfrow = c(2,2))
+  barplot(table(data$Mathe.LK), main = "Belegung von Mathe Lks", ylab = "Anzahl")
+  barplot(table(data$Studienfach), main = "Häufigkeit der Studienfächer", ylab = "Anzahl")
+  barplot(table(data$Interesse.an.Mathematik), main = "Interesse an Mathematik", ylab = "Anzahl",xlab ="wie stark das Interesse ist")
+  barplot(table(person$Interesse.an.Programmieren), main = "Interesse an Programmieren", ylab = "Anzahl",xlab ="wie stark das Interesse ist")
+}
+
+

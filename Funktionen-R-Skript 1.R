@@ -75,7 +75,7 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 
 #e)
 
-#quantilKategorisierung -  die mindestens ordinal skalierte Variablen quantilsbasiert kategorisiert
+#quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variablen quantilsbasiert kategorisiert
 #
 # Input
 # 

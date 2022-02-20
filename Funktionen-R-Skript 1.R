@@ -91,24 +91,26 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 
 quantilKategorisierung = function(data, grenzen = c(0.25, 0.75)) {
   
-  if(length(grenzen) != 2 | grenzen[1] >= grenzen[2] | grenzen[1] > 1 | grenzen[1] < 0 | grenzen[2] > 1 | grenzen[2] < 0) {
+  if(length(grenzen) != 2 | grenzen[1] >= grenzen[2] | grenzen[1] < 0 | grenzen[2] > 1) {
     return("ungueltige Grenzen")
   }
   
   tmp = data #urspruengliche Daten
   data = as.numeric(data) #ggf umwandeln in numerische Werte mit bekannter Anordnung
-  data = as.data.frame(data) # umwandeln in Dataframe
-  data$Daten = tmp #uspruengliche Daten dem dataframe hinzufuegen
-  quants = quantile(data$data, probs = grenzen) #Quantile bilden auf numerisierten Daten
-
-  data$Kategorie = ""
-  data[data$data <= quants[1], ]$Kategorie = "niedrig"
-  data[data$data > quants[2], ]$Kategorie = "hoch"
-  data[data$data <= quants[2] & data$data > quants[1], ]$Kategorie = "mittel" #Kategorisierung geschieht auf numerisierten Daten
+  df = as.data.frame(data) # umwandeln in Dataframe
+  df$Daten = tmp #uspruengliche Daten dem dataframe hinzufuegen
   
+  
+  quants = quantile(df$data, probs = grenzen) #Quantile bilden auf numerisierten Daten
 
-  return(data[-1]) #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
-}
+  df$Kategorie = NA
+
+  df$Kategorie[which(df$data <= quants[1])] = "niedrig"
+  df$Kategorie[which(df$data > quants[2])] = "hoch"
+  df$Kategorie[which(df$data > quants[1] & df$data <= quants[2]) ] = "mittel"
+
+  return(df[-1]) #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
+
 
 
 # todo (f)

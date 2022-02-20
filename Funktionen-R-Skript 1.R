@@ -75,30 +75,40 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 
 #e)
 
-#quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variable quantilsbasiert kategorisiert
+#quantilKategorisierung -  die mindestens ordinal skalierte Variablen quantilsbasiert kategorisiert
 #
 # Input
 # 
-# data - numerisch oder ordinalskalierte Variable: Daten, die kategorisiert werden sollen
-# grenzen: num. Vektor mit 2 gewünschten Quantilen, die die Grenzen festlegen
+# data: numerisch oder odinalskalierte Variable: Daten, die kategorisiert werden sollen. Fuer nicht numerische Daten muss eine entsprechende Ordnungsrelation
+#        uebergeben werden, zum Beispiel mit data = ordered(sample(letters, 50, TRUE))
+# grenzen: num. Vektor mit 2 gewuenschten Quantilen, die die Grenzen festlegen. Der erste Eintrag im Vektor bestimmt die untere Grenze,
+#           der zweite Eintrag entsprechend die obere Grenze. Muessen beiden zwischen 0 und 1 liegen.
 #
 #
 # Output
 #
-# dataframe: Spalte 1 "data" mit den ursprünglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
+# dataframe: Spalte 1 "Daten" mit den urspruenglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
 
 quantilKategorisierung = function(data, grenzen = c(0.25, 0.75)) {
   
-  data = as.numeric(data)
+  if(length(grenzen) != 2 | grenzen[1] >= grenzen[2] | grenzen[1] > 1 | grenzen[1] < 0 | grenzen[2] > 1 | grenzen[2] < 0) {
+    return("ungueltige Grenzen")
+  }
   
-  quants = quantile(data, probs = grenzen)
-  data = as.data.frame(data)
+  tmp = data #urspruengliche Daten
+  data = as.numeric(data) #ggf umwandeln in numerische Werte mit bekannter Anordnung
+  data = as.data.frame(data) # umwandeln in Dataframe
+  data$Daten = tmp #uspruengliche Daten dem dataframe hinzufuegen
+  quants = quantile(data$data, probs = grenzen) #Quantile bilden auf numerisierten Daten
+
   data$Kategorie = ""
   data[data$data <= quants[1], ]$Kategorie = "niedrig"
-  data[data$data >= quants[2], ]$Kategorie = "hoch"
-  data[data$data < quants[2] & data$data > quants[1], ]$Kategorie = "mittel"
+  data[data$data > quants[2], ]$Kategorie = "hoch"
+  data[data$data <= quants[2] & data$data > quants[1], ]$Kategorie = "mittel" #Kategorisierung geschieht auf numerisierten Daten
+  
 
-  return(data)
-  }
+  return(data[-1]) #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
+}
+
 
 # todo (f)

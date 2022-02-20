@@ -85,8 +85,11 @@ Visualisierung = function(data = person){
   par(mfrow = c(2,2))
   barplot(table(data$Mathe.LK), main = "Belegung von Mathe Lks", ylab = "Anzahl")
   barplot(table(data$Studienfach), main = "Häufigkeit der Studienfächer", ylab = "Anzahl")
-  barplot(table(data$Interesse.an.Mathematik), main = "Interesse an Mathematik", ylab = "Anzahl",xlab ="wie stark das Interesse ist")
-  barplot(table(person$Interesse.an.Programmieren), main = "Interesse an Programmieren", ylab = "Anzahl",xlab ="wie stark das Interesse ist")
+  barplot(table(data$Interesse.an.Mathematik), main = "Interesse an Mathematik",
+          ylab = "Anzahl",xlab ="wie stark das Interesse ist")
+  barplot(table(person$Interesse.an.Programmieren), main = "Interesse an Programmieren",
+          ylab = "Anzahl",xlab ="wie stark das Interesse ist")
+  par(mfrow = c(1,1))
 }
 
 

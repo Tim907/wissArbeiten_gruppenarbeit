@@ -1,7 +1,6 @@
 
 # Bearbeitung von Aufgabe 3
-setwd("C:/Users/User/Desktop/UNI/Semester 3/Wissenschaftliches Arbeiten")
-library(ggplot2)
+
 # Falls Probleme beim Laden, probiert: Session/Set Working Directory/To Source File Location
 source("Funktionen-R-Skript 2.R")
 

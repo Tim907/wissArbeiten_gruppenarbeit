@@ -20,7 +20,7 @@ source("Funktionen-R-Skript 2.R")
 #                   Merkmals
 #         Y       - Vektor mit den Merkmalsauspraegungen eines kategorialen
 #                   Merkmals, selbe Laenge wie X
-#         Merkmal - Vektor Laenge 2; jeweils entweder "nominal" oder "ordinal", 
+#         Merkmal - Vektor Laenge 2; jeweils entweder "qualitativ" oder "ordinal", 
 #                   "ordinal", wenn Mermal eine Ordnung hat
 #         absolut - logisch; gibt an ob die absoluten Haeufigkeiten gegeben 
 #                   werden sollen
@@ -33,10 +33,10 @@ source("Funktionen-R-Skript 2.R")
 #           - 2 normierte Kontingenzmasse
 #           - maximale und minimale Auspraegung der Kontingenzmasse.
 #
-relate_categorial = function( X, Y, Merkmal = c("nominal", "nominal"), 
+relate_categorial = function( X, Y, Merkmal = c("qualitativ", "qualitativ"), 
                               absolut = FALSE, dnames = c(NULL, NULL) ){
   stopifnot(length(X) == length(Y),
-            Merkmal %in% c("nominal", "ordinal"),
+            Merkmal %in% c("qualitativ", "ordinal"),
             length(Merkmal) == 2,
             length(dnames) <= 2)
   

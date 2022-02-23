@@ -79,38 +79,45 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 #
 # Input
 # 
-# data: numerisch oder odinalskalierte Variable: Daten, die kategorisiert werden sollen. Fuer nicht numerische Daten muss eine entsprechende Ordnungsrelation
-#        uebergeben werden, zum Beispiel mit data = ordered(sample(letters, 50, TRUE))
+# data: numerisch oder odinalskalierte Variable: Daten, die kategorisiert werden sollen. 
 # grenzen: num. Vektor mit 2 gewuenschten Quantilen, die die Grenzen festlegen. Der erste Eintrag im Vektor bestimmt die untere Grenze,
 #           der zweite Eintrag entsprechend die obere Grenze. Muessen beiden zwischen 0 und 1 liegen.
-#
+# Anordnung: bestimmte Anordnung für nicht numerische Variablen
 #
 # Output
 #
 # dataframe: Spalte 1 "Daten" mit den urspruenglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
 
-quantilKategorisierung = function(data, grenzen = c(0.25, 0.75)) {
+quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NULL) {
   
-  if(length(grenzen) != 2 | grenzen[1] >= grenzen[2] | grenzen[1] < 0 | grenzen[2] > 1) {
-    return("ungueltige Grenzen")
+  if(length(grenzen) != 2 | grenzen[1] >= grenzen[2] | grenzen[1] < 0 | grenzen[2] >= 1) {
+    stop("ungueltige Grenzen")
   }
   
   tmp = data #urspruengliche Daten
+  
+  if(!is.null(Anordnung)){
+    data = raenge(data, Anordnung, Bindungen = "average") #oder "max" oder "min" nach Vorzügen, ändert eh nichts
+  }
+  
+  else if(!is.numeric(data)){
+    data = ordered(data) #Ordnung hinzufuegen
+  }
+  
   data = as.numeric(data) #ggf umwandeln in numerische Werte mit bekannter Anordnung
   df = as.data.frame(data) # umwandeln in Dataframe
   df$Daten = tmp #uspruengliche Daten dem dataframe hinzufuegen
   
   
   quants = quantile(df$data, probs = grenzen) #Quantile bilden auf numerisierten Daten
-
+  
   df$Kategorie = NA
-
+  
   df$Kategorie[which(df$data <= quants[1])] = "niedrig"
   df$Kategorie[which(df$data > quants[2])] = "hoch"
   df$Kategorie[which(df$data > quants[1] & df$data <= quants[2]) ] = "mittel"
-
+  
   return(df[-1]) #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
-
-
+}
 
 # todo (f)

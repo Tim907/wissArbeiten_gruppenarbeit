@@ -38,13 +38,8 @@ kategorialeVariablen(df$Studienfach, Merkmal = "qualitativ")
 Visualisierung(df)
 # Hier erkennen wir, dass in der Grafik mit den Studienfaechern das Studienfach 
 # Statistik am Haeufigsten angegeben worden ist, dicht gefolgt von Data Science, deutlich
-# geringer ist das Studienfach Mathematik vertreten. In der rechten, oberen Grafik 
-# koennen wir ablesen, dass die meisten eine Merkmalsauspraegung vo 5 angegeben 
-# haben und die wenigsten ein Interesse mit 1 oder 7 angegeben haben. Bei der 
-# untereren linken Grafik sehen wir, dass die meisten ein Interesse von 5 bei der 
-# Programmierung haben und deutlich mehr Studierende ein hoeheres Interesse an
-# Programmierung haben, als an Mathe (vergleich 2. mit 3. Grafik).
-# Bei der unteren rechten Grafik können wir erkennen, dass deutlich mehr als die 
+# geringer ist das Studienfach Mathematik vertreten.
+# Bei der rechten Grafik koennen wir erkennen, dass deutlich mehr als die 
 # haelfte der Studierenden den Mathe LK besucht haben.
 
 relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)

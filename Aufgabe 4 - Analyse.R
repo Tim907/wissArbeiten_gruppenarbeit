@@ -70,10 +70,10 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
 # Hiermit haben wir die relative Haeufigkeit angegeben, von Interesse an Mathematik mit den
 # Werten i (i = 1,..., 7) , die unter der Bedingung, dass Mathe LK ja/nein  annimmt.
 
-# Kontigenzmaﬂ
+# Kontigenzmass
 # Cramers_Kontingenzmass korr_Pearsons_Kontingezmass 
 # 0.2737681                   0.3734254 
-# Kontigenzmaﬂ gibt den Zusammenhang der Variablen an. Der Zusammenhang von Mathe
+# Kontigenzmass gibt den Zusammenhang der Variablen an. Der Zusammenhang von Mathe
 # LK und Interesse an Mathe liegt bei 0.274 (Cramer) bzw. 0,373 (Pearson), also gibt
 # es einen mittleren Zusammenhang.
 
@@ -104,9 +104,9 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Programmieren)
 #             TRUE                     0.05970149 0.11940299 0.19402985 0.17910448 0.16417910 0.19402985 0.08955224
 # Hiermit haben wir die relative Haeufigkeit angegeben, von Interesse an Programmieren mit den 
 # Wert i (i = 1,..., 7) , die unter der Bedingung, dass Mathe LK ja/nein annimmt.
-#Kontingenzmaﬂ
+#Kontingenzmass
 # Cramers_Kontingenzmass korr_Pearsons_Kontingezmass 
 # 0.4402062                   0.5697821 
-# Kontigenzmaﬂ gibt den Zusammenhang der Variablen an. Der Zusammenhang von Mathe
+# Kontigenzmass gibt den Zusammenhang der Variablen an. Der Zusammenhang von Mathe
 # LK und Interesse an Programmieren liegt bei 0.44 (Cramer) bzw. 0,57 (Pearson), 
 # also gibt es einen mittleren Zusammenhang.

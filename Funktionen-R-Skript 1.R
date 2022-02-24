@@ -166,7 +166,6 @@ cor_metric_dicho = function(x, y) {
 
 # todo (e)
 
-
 # todo (f)
 # Visualisierung erstellt 4 Grafiken
 # Input - data - Dataframe 
@@ -175,11 +174,11 @@ person = read.csv2("person.csv")
 Visualisierung = function(data){
   par(mfrow = c(2,2))
   i = 2
-  t = 1
-  while(i <= dim(data)[2] && t <= 4){
+  n = 1
+  while(i <= dim(data)[2] && n <= 4){
     if(is.character(data[[i]]) | is.integer(data[[i]])){
       barplot(table(data[[i]]), main = names(data)[i], ylab = "Anzahl")
-      t = t+1
+      n = n+1
     }
     i= i+1
   }
@@ -223,3 +222,4 @@ rangkorr_koeff = function(X, Y, xAnordnung = NULL, yAnordnung = NULL,
 }
 
 ################################################################################
+

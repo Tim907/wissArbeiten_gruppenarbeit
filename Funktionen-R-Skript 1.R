@@ -212,7 +212,7 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
 
 
 # f)
-# Visualisierung erstellt 4 Grafiken
+# Visualisierung erstellt  maximal 4 Grafiken ueber kategoriale Variable
 # Input - data - Dataframe 
 # Output - eine Grafik
 Visualisierung = function(data){

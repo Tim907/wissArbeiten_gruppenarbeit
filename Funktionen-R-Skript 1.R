@@ -211,7 +211,24 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
 }
 
 
-# todo (f)
+# f)
+# Visualisierung erstellt 4 Grafiken
+# Input - data - Dataframe 
+# Output - eine Grafik
+person = read.csv2("person.csv")
+Visualisierung = function(data){
+  par(mfrow = c(2,2))
+  i = 2
+  n = 1
+  while(i <= dim(data)[2] && n <= 4){
+    if(is.character(data[[i]]) | is.integer(data[[i]])){
+      barplot(table(data[[i]]), main = names(data)[i], ylab = "Anzahl")
+      n = n+1
+    }
+    i= i+1
+  }
+  par(mfrow = c(1,1))
+}
 
 
 # Zusatz

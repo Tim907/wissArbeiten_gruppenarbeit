@@ -22,7 +22,7 @@ metrischeVariablen(df$Interesse.an.Mathematik)
 #im Durchschnitt liegt das Interesse bei etwa 3.9
 
 metrischeVariablen(df$Interesse.an.Programmieren)
-# im Durchschnitt liegt das Interesse bei etwa 4.6,also hoeher als das Interessant an mathematik
+# im Durchschnitt liegt das Interesse bei etwa 4.6, also hoeher als das Interessant an Mathematik
 
 cor_metric_dicho(df$Interesse.an.Mathematik, df$Mathe.LK)
 # Es gibt einen leicht positiven Zusammenhang zwischen Interesse an Mathematik und Mathe LK
@@ -31,8 +31,10 @@ cor_metric_dicho(df$Interesse.an.Programmieren, df$Mathe.LK)
 # Es gibt einen deutlichen,  negativen Zusammenhang zwischen Interesse am Programmieren und Mathe LK
 
 
-kategorialeVariablen(df$Studienfach, Merkmal = qualitativ)
-# funktioniert nicht?
+kategorialeVariablen(df$Studienfach, Merkmal = "qualitativ")
+# Die meisten Personen studieren Statistik (36%) und Data Science (30%).
+# Nur 23% von den befragten Personen haben das Studienfach Informatik.
+# Nur 11% von den befragten Personen studieren Mathematik.
 
 Visualisierung(df)
 # Hier erkennen wir, dass in der Grafik mit den Studienfaechern das Studienfach 

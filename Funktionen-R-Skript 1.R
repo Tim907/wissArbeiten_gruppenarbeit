@@ -97,7 +97,7 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
   tmp = data #urspruengliche Daten
   
   if(!is.null(Anordnung)){
-    data = raenge(data, Anordnung, Bindungen = "average") #oder "max" oder "min" nach Vorzügen, ändert eh nichts
+    data = raenge(data, Anordnung, Bindungen = "average") 
   }
   
   else if(!is.numeric(data)){

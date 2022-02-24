@@ -175,11 +175,11 @@ person = read.csv2("person.csv")
 Visualisierung = function(data){
   par(mfrow = c(2,2))
   i = 2
-  n = 1
-  while(i <= dim(data)[2] && n <= 4){
+  t = 1
+  while(i <= dim(data)[2] && t <= 4){
     if(is.character(data[[i]]) | is.integer(data[[i]])){
       barplot(table(data[[i]]), main = names(data)[i], ylab = "Anzahl")
-      n = n+1
+      t = t+1
     }
     i= i+1
   }

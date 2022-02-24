@@ -215,7 +215,6 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
 # Visualisierung erstellt 4 Grafiken
 # Input - data - Dataframe 
 # Output - eine Grafik
-person = read.csv2("person.csv")
 Visualisierung = function(data){
   par(mfrow = c(2,2))
   i = 2

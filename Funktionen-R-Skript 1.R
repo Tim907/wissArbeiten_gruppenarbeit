@@ -221,7 +221,7 @@ Visualisierung = function(data){
   i = 2
   n = 1
   while(i <= dim(data)[2] && n <= 4){
-    if(is.character(data[[i]]) | is.integer(data[[i]])){
+    if(!is.numeric(data[[i]])){
       barplot(table(data[[i]]), main = names(data)[i], ylab = "Anzahl")
       n = n+1
     }

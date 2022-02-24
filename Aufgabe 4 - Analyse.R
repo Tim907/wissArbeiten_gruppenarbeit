@@ -66,7 +66,7 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
 #             5                  0.2800000  0.7200000
 #             6                  0.1250000  0.8750000
 #             7                  0.0000000  1.0000000
-# Hiermit haben wir die relative Haefigkeit angeben, von Mathe LK ja/nein, die 
+# Hiermit haben wir die relative Haeufigkeit angeben, von Mathe LK ja/nein, die 
 # unter der Bedingung, dass das Interesse an Mathe den Wert i (i=1,...,7) annimmt.
 
 #bedingte Verteilung h(Interesse an Mathe|Mathe.LK)

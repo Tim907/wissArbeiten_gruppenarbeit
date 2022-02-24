@@ -110,3 +110,9 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Programmieren)
 # Kontigenzmass gibt den Zusammenhang der Variablen an. Der Zusammenhang von Mathe
 # LK und Interesse an Programmieren liegt bei 0.44 (Cramer) bzw. 0,57 (Pearson), 
 # also gibt es einen mittleren Zusammenhang.
+
+quantilKategorisierung(df$Alter)
+quantilKategorisierung(df$Interesse.an.Mathematik)
+#1-3: niedrig, 4-5: mittel, 6-7: hoch
+quantilKategorisierung(df$Interesse.an.Programmieren)
+#1-3: niedrig, 4-6: mittel, 6-7: hoch

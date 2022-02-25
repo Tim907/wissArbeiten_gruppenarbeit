@@ -23,6 +23,7 @@ metrischeVariablen(df$Interesse.an.Mathematik)
 
 metrischeVariablen(df$Interesse.an.Programmieren)
 # im Durchschnitt liegt das Interesse bei etwa 4.6, also hoeher als das Interessant an Mathematik
+# Das Interesse an Programmieren varriert mehr als das Interesse an Mathematik
 
 cor_metric_dicho(df$Interesse.an.Mathematik, df$Mathe.LK)
 # Es gibt einen leicht positiven Zusammenhang zwischen Interesse an Mathematik und Mathe LK
@@ -42,7 +43,8 @@ Visualisierung(df)
 # Bei der rechten Grafik koennen wir erkennen, dass deutlich mehr als die 
 # haelfte der Studierenden den Mathe LK besucht haben.
 
-relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
+relate_categorial(df$Mathe.LK, df$Interesse.an.Mathematik, 
+                  dnames = c("Mathe LK", "Interesse an Mathematik"))
 # Kontigenztafel
 # Mathe.LK\Interesse an Mathe   1    2    3    4    5    6    7
 #       FALSE                   0.01 0.05 0.10 0.09 0.07 0.01 0.00
@@ -63,10 +65,11 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
 # Hiermit haben wir die relative Haeufigkeit angeben, von Mathe LK ja/nein, die 
 # unter der Bedingung, dass das Interesse an Mathematik den Wert i (i = 1,..., 7) annimmt.
 
-#bedingte Verteilung h(Interesse an Mathe|Mathe.LK)
-#Mathe.LK\Interesse an Mathe   1          2          3          4          5          6          7
-#       FALSE                  0.03030303 0.15151515 0.30303030 0.27272727 0.21212121 0.03030303 0.00000000
-#       TRUE                   0.05970149 0.14925373 0.17910448 0.16417910 0.26865672 0.10447761 0.07462687
+#bedingte Verteilung h(Interesse an Mathe|Mathe.LK) 
+#Mathe.LK\Interesse an Mathe
+#                    1          2          3          4          5          6          7
+#       FALSE        0.03030303 0.15151515 0.30303030 0.27272727 0.21212121 0.03030303 0.00000000
+#       TRUE         0.05970149 0.14925373 0.17910448 0.16417910 0.26865672 0.10447761 0.07462687
 # Hiermit haben wir die relative Haeufigkeit angegeben, von Interesse an Mathematik mit den
 # Werten i (i = 1,..., 7) , die unter der Bedingung, dass Mathe LK ja/nein  annimmt.
 
@@ -77,7 +80,8 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
 # LK und Interesse an Mathe liegt bei 0.274 (Cramer) bzw. 0,373 (Pearson), also gibt
 # es einen mittleren Zusammenhang.
 
-relate_categorial(df$Mathe.LK,df$Interesse.an.Programmieren)
+relate_categorial(df$Mathe.LK, df$Interesse.an.Programmieren,
+                  dnames = c("Mathe LK", "Interesse an Programmieren"))
 # Kontigenztafel
 # Mathe.LK\Interesse an Programmieren  1    2    3    4    5    6    7
 #           FALSE                      0.00 0.02 0.01 0.04 0.10 0.04 0.12
@@ -99,9 +103,10 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Programmieren)
 # unter der Bedingung, dass das Interesse an Programmieren den Wert i (i=1,...,7) annimmt.
 
 #bedingte Verteilung h(Interesse an Programmieren|Mathe.LK)
-#Mathe.LK\Interesse an Programmieren   1          2          3          4          5          6          7
-#             FALSE                    0.00000000 0.06060606 0.03030303 0.12121212 0.30303030 0.12121212 0.36363636
-#             TRUE                     0.05970149 0.11940299 0.19402985 0.17910448 0.16417910 0.19402985 0.08955224
+# Mathe.LK\Interesse an Programmieren
+#                     1          2          3          4          5          6          7
+#             FALSE   0.00000000 0.06060606 0.03030303 0.12121212 0.30303030 0.12121212 0.36363636
+#             TRUE    0.05970149 0.11940299 0.19402985 0.17910448 0.16417910 0.19402985 0.08955224
 # Hiermit haben wir die relative Haeufigkeit angegeben, von Interesse an Programmieren mit den 
 # Wert i (i = 1,..., 7) , die unter der Bedingung, dass Mathe LK ja/nein annimmt.
 #Kontingenzmass
@@ -117,14 +122,15 @@ quantilKategorisierung(df$Interesse.an.Mathematik)
 quantilKategorisierung(df$Interesse.an.Programmieren)
 #1-3: niedrig, 4-6: mittel, 7: hoch
 
-relate_categorial(df$Studienfach, df$Interesse.an.Mathematik)
+relate_categorial(df$Studienfach, df$Interesse.an.Mathematik, 
+                  dnames = c("Studienfach", "Interesse an Mathematik"))
 # Data Scientisten und Informatiker haben ein eher geringes Interesse an Mathematik 
 # verglichen mit Statistikern  und Mathematikern
-relate_categorial(df$Studienfach, df$Interesse.an.Programmieren)
+
+relate_categorial(df$Studienfach, df$Interesse.an.Programmieren, 
+                  dnames = c("Studienfach", "Interesse an Programmieren"))
 # Data Scientisten haben ein hohes Interesse am Programmieren, Informatiker ein sehr hohes, 
 # Statistiker ein mittleres und Mathematiker ein eher niedriges
-
-
 
 rangkorr_koeff(df$Interesse.an.Mathematik, df$Interesse.an.Programmieren)
 # stark negativer Zusammenhang zwischen diesen Interessen

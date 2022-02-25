@@ -115,4 +115,4 @@ quantilKategorisierung(df$Alter)
 quantilKategorisierung(df$Interesse.an.Mathematik)
 #1-3: niedrig, 4-5: mittel, 6-7: hoch
 quantilKategorisierung(df$Interesse.an.Programmieren)
-#1-3: niedrig, 4-6: mittel, 6-7: hoch
+#1-3: niedrig, 4-6: mittel, 7: hoch

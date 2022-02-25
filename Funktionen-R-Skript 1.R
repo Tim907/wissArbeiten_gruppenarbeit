@@ -165,18 +165,21 @@ cor_metric_dicho = function(x, y) {
 
 #e)
 
-#quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variable quantilsbasiert kategorisiert
+#quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variable 
+#                          quantilsbasiert kategorisiert
 #
 # Input
 # 
 # data: numerisch oder odinalskalierte Variable: Daten, die kategorisiert werden sollen. 
-# grenzen: num. Vektor mit 2 gewuenschten Quantilen, die die Grenzen festlegen. Der erste Eintrag im Vektor bestimmt die untere Grenze,
-#           der zweite Eintrag entsprechend die obere Grenze. Muessen beiden zwischen 0 und 1 liegen.
+# grenzen: num. Vektor mit 2 gewuenschten Quantilen, die die Grenzen festlegen. 
+#          Der erste Eintrag im Vektor bestimmt die untere Grenze, der zweite Eintrag entsprechend 
+#          die obere Grenze. Muessen beiden zwischen 0 und 1 liegen.
 # Anordnung: bestimmte Anordnung für nicht numerische Variablen
 #
 # Output
 #
-# dataframe: Spalte 1 "Daten" mit den urspruenglichen Daten, Spalte 2 namens "Kategorie", die berechnete Kategorie
+# dataframe: Spalte 1 "Daten" mit den urspruenglichen Daten, 
+#            Spalte 2 namens "Kategorie", die berechnete Kategorie
 
 quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NULL) {
   
@@ -207,7 +210,8 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
   df$Kategorie[which(df$data > quants[2])] = "hoch"
   df$Kategorie[which(df$data > quants[1] & df$data <= quants[2]) ] = "mittel"
   
-  return(df[-1]) #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
+  return(df[-1]) 
+  #numerisierte Daten entfernen, return dataframe mit urspruenglichen Daten und Kategorie
 }
 
 

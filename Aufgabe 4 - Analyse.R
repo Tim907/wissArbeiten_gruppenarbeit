@@ -116,3 +116,13 @@ quantilKategorisierung(df$Interesse.an.Mathematik)
 #1-3: niedrig, 4-5: mittel, 6-7: hoch
 quantilKategorisierung(df$Interesse.an.Programmieren)
 #1-3: niedrig, 4-6: mittel, 7: hoch
+
+relate_categorial(df$Studienfach, df$Interesse.an.Mathematik)
+# Data Scientisten und Informatiker haben ein eher geringes Interesse an Mathematik verglichen mit Statistikern  und Mathematikern
+relate_categorial(df$Studienfach, df$Interesse.an.Programmieren)
+# Data Scientisten haben ein hohes Interesse am Programmieren, Informatiker ein sehr hohes, Statistiker ein mittleres und Mathematiker ein eher niedriges
+
+
+
+rangkorr_koeff(df$Interesse.an.Mathematik, df$Interesse.an.Programmieren)
+# stark negativer Zusammenhang zwischen diesen Interessen

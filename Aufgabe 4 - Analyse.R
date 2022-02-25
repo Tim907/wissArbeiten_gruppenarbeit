@@ -23,6 +23,7 @@ metrischeVariablen(df$Interesse.an.Mathematik)
 
 metrischeVariablen(df$Interesse.an.Programmieren)
 # im Durchschnitt liegt das Interesse bei etwa 4.6, also hoeher als das Interessant an Mathematik
+# Das Interesse an Programmieren varriert mehr als das Interesse an Mathematik
 
 cor_metric_dicho(df$Interesse.an.Mathematik, df$Mathe.LK)
 # Es gibt einen leicht positiven Zusammenhang zwischen Interesse an Mathematik und Mathe LK
@@ -42,7 +43,8 @@ Visualisierung(df)
 # Bei der rechten Grafik koennen wir erkennen, dass deutlich mehr als die 
 # haelfte der Studierenden den Mathe LK besucht haben.
 
-relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
+relate_categorial(df$Mathe.LK, df$Interesse.an.Mathematik, 
+                  dnames = c("Mathe LK", "Interesse an Mathematik"))
 # Kontigenztafel
 # Mathe.LK\Interesse an Mathe   1    2    3    4    5    6    7
 #       FALSE                   0.01 0.05 0.10 0.09 0.07 0.01 0.00
@@ -77,7 +79,8 @@ relate_categorial(df$Mathe.LK,df$Interesse.an.Mathematik)
 # LK und Interesse an Mathe liegt bei 0.274 (Cramer) bzw. 0,373 (Pearson), also gibt
 # es einen mittleren Zusammenhang.
 
-relate_categorial(df$Mathe.LK,df$Interesse.an.Programmieren)
+relate_categorial(df$Mathe.LK, df$Interesse.an.Programmieren,
+                  dnames = c("Mathe LK", "Interesse an Programmieren"))
 # Kontigenztafel
 # Mathe.LK\Interesse an Programmieren  1    2    3    4    5    6    7
 #           FALSE                      0.00 0.02 0.01 0.04 0.10 0.04 0.12
@@ -117,11 +120,12 @@ quantilKategorisierung(df$Interesse.an.Mathematik)
 quantilKategorisierung(df$Interesse.an.Programmieren)
 #1-3: niedrig, 4-6: mittel, 7: hoch
 
-relate_categorial(df$Studienfach, df$Interesse.an.Mathematik)
+relate_categorial(df$Studienfach, df$Interesse.an.Mathematik, 
+                  dnames = c("Studienfach", "Interesse an Mathematik"))
 # Data Scientisten und Informatiker haben ein eher geringes Interesse an Mathematik verglichen mit Statistikern  und Mathematikern
-relate_categorial(df$Studienfach, df$Interesse.an.Programmieren)
+relate_categorial(df$Studienfach, df$Interesse.an.Programmieren, 
+                  dnames = c("Studienfach", "Interesse an Programmieren"))
 # Data Scientisten haben ein hohes Interesse am Programmieren, Informatiker ein sehr hohes, Statistiker ein mittleres und Mathematiker ein eher niedriges
-
 
 
 rangkorr_koeff(df$Interesse.an.Mathematik, df$Interesse.an.Programmieren)

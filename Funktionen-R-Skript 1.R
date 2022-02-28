@@ -5,7 +5,7 @@
 source("Funktionen-R-Skript 2.R")
 
 
-# a
+# a)
 
 #metrischeVariablen - berechnet Minimum, Maximum, 1. Quatil, 3.Quatil, Median,
 #                     Mean und die empirische Varianz
@@ -42,7 +42,7 @@ metrischeVariablen = function(a){
 }
 
 
-# b
+# b)
 
 #kategorialeVariablen - berechnet Modus, absolute und relative Haeufigkeiten
 #                       der Auspraegungen, Median (bei ordinal)
@@ -72,7 +72,7 @@ kategorialeVariablen = function(a, Merkmal, Anordnung = NULL){
 }
 
 
-# c
+# c)
 
 # relate_categorial
 #
@@ -142,7 +142,7 @@ relate_categorial = function( X, Y, Merkmal = c("qualitativ", "qualitativ"),
 }
 
 
-# d
+# d)
 
 # cor_metric_dicho liefert mittels logistischer Regression deskriptive Statistiken 
 # ueber den Zusammenhang zwischen einer metrischen und einer bivariaten Variable.
@@ -163,7 +163,8 @@ cor_metric_dicho = function(x, y) {
 # correlation = cor_metric_dicho(data$Interesse.an.Mathematik,
 #   ifelse(data$Mathe.LK == "ja", 1, 0))
 
-#e)
+
+# e)
 
 #quantilKategorisierung -  Funktion, die eine mindestens ordinal skalierte Variable 
 #                          quantilsbasiert kategorisiert
@@ -174,7 +175,7 @@ cor_metric_dicho = function(x, y) {
 # grenzen: num. Vektor mit 2 gewuenschten Quantilen, die die Grenzen festlegen. 
 #          Der erste Eintrag im Vektor bestimmt die untere Grenze, der zweite Eintrag entsprechend 
 #          die obere Grenze. Muessen beiden zwischen 0 und 1 liegen.
-# Anordnung: bestimmte Anordnung für nicht numerische Variablen
+# Anordnung: bestimmte Anordnung fuer nicht numerische Variablen
 #
 # Output
 #
@@ -216,7 +217,9 @@ quantilKategorisierung = function(data, grenzen = c(0.25, 0.75), Anordnung = NUL
 
 
 # f)
-# Visualisierung erstellt  maximal 4 Grafiken ueber kategoriale Variable, inklusive ganzzahliger Daten. Numerische, nicht ganzzahlige Variablen werden nicht visualisiert
+
+# Visualisierung erstellt  maximal 4 Grafiken ueber kategoriale Variable, inklusive ganzzahliger
+# Daten. Numerische, nicht ganzzahlige Variablen werden nicht visualisiert.
 # Input - data - Dataframe 
 # Output - eine Grafik
 Visualisierung = function(data){
@@ -270,4 +273,4 @@ rangkorr_koeff = function(X, Y, xAnordnung = NULL, yAnordnung = NULL,
   return(Rangkorrelationskoeffizient = r)
 }
 
-################################################################################
+##################################################################################################
